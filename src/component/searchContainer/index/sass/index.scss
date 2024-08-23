@@ -1,0 +1,277 @@
+.search {
+  height: 150px;
+  margin-top: 95px;
+  .imgItem {
+    width: 272.5px;
+    height: 92px;
+    margin: 0 auto;
+    padding-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .searchArea {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 27px;
+    .formItem {
+      width: 584px;
+      border: 1px solid #5f6368;
+      border-radius: 30px;
+      z-index: 4;
+      position: relative;
+      box-sizing: border-box;
+      .inputItem {
+        outline: none;
+        background-color: #202124;
+        border: none;
+        overflow: hidden;
+        color: #e8eaed;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        line-height: 22px;
+        margin-left: 12px;
+        flex: 1;
+      }
+      .inputHover {
+        background-color: #313335;
+        margin-top: 1px;
+        margin-left: 14px;
+      }
+      .searchBottom {
+        text-align: end;
+        font-size: 11px;
+        font-style: italic;
+        margin-top: -16px;
+        color: #9e9e9e;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+      .baseLine {
+        width: 94%;
+        height: 1px;
+        background-color: #5f6368;
+        margin-left: 3%;
+      }
+      .data {
+        .rowMargin {
+          margin-top: 10px;
+        }
+        .row {
+          display: flex;
+          align-items: center;
+          color: #e8e8e8;
+          cursor: pointer;
+          font-size: 16px;
+          font-family: Arial, sans-serif;
+          font-weight: 500;
+          height: 34px;
+          &:hover {
+            background-color: #3e4042;
+          }
+          .author {
+            line-height: 12px;
+            font-size: 13px;
+            color: #9aa0a6;
+            margin-top: 2px;
+            padding-right: 8px;
+          }
+          .noneImg {
+            margin-left: 10px;
+          }
+          .nothingRow {
+            width: 16px;
+            height: 16px;
+            margin-left: 15px;
+          }
+          .divItem {
+            display: flex;
+            flex-direction: column;
+            margin-left: 5px;
+          }
+          .spanItem {
+            margin-left: 11px;
+          }
+          .imgRow {
+            margin-left: 8px;
+            width: 32px;
+            height: 32px;
+          }
+        }
+        .firstRow {
+          margin-top: 5px;
+        }
+      }
+      .top {
+        height: 45px;
+        width: 100%;
+        .divItem {
+          width: 582px;
+          height: 45px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .left {
+            width: 70%;
+            display: flex;
+            align-items: center;
+            .imgItem {
+              width: 16px;
+              height: 16px;
+              margin-left: 16px;
+              padding-bottom: 2px;
+            }
+            .imgItemHover {
+              width: 16px;
+              height: 17px;
+              margin-left: 17px;
+              padding-bottom: 3px;
+            }
+          }
+          .right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 22%;
+            .display {
+              visibility: visible;
+            }
+            .hide {
+              visibility: hidden;
+            }
+            .mike {
+              width: 37.5px;
+              height: 33.5px;
+              margin-right: 11px;
+              margin-bottom: 2px;
+            }
+            .mikeHover {
+              width: 15px;
+              height: 21.5px;
+              margin-right: 22px;
+              margin-bottom: 3px;
+            }
+            .InputMikeHover {
+              width: 15.2px;
+              height: 21.5px;
+              margin-right: 21.5px;
+              margin-bottom: 3px;
+            }
+            .camera {
+              width: 21.6px;
+              height: 20px;
+              margin-right: 17px;
+            }
+            .InputCameraHover {
+              width: 20px;
+              height: 20px;
+              margin-right: 17px;
+              margin-bottom: 2px;
+            }
+            .cameraHover {
+              width: 20px;
+              height: 20px;
+              margin-right: 17px;
+              margin-bottom: 2px;
+            }
+            .hidden {
+              width: 16px;
+              height: 16px;
+              margin-right: 16px;
+              cursor: pointer;
+            }
+            .hiddenImg {
+              width: 16px;
+              height: 16px;
+              margin-top: 1px;
+              margin-right: 16px;
+              margin-bottom: 2px;
+              cursor: pointer;
+            }
+            .lineHover {
+              display: block;
+              border-left: 1px solid #5f6368;
+              height: 29px;
+              margin-right: 17px;
+              margin-bottom: 2px;
+            }
+            .line {
+              display: block;
+              border-left: 1px solid #5f6368;
+              height: 29px;
+              margin-right: 4.2px;
+              margin-bottom: 2px;
+            }
+          }
+        }
+      }
+    }
+    .searchButtonItem {
+      display: flex;
+      width: 100%;
+      height: 58px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 17px;
+      .searchButtonBackground {
+        background-color: #303134;
+      }
+      .searchButton {
+        border-radius: 4px;
+        color: #e8eaed;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        margin-top: 3px;
+        line-height: 27px;
+        height: 36px;
+        cursor: pointer;
+      }
+      .googleButton {
+        margin-right: 6px;
+        padding: 0px 16px 0 15.5px;
+      }
+      .luckyButton {
+        margin-left: 6px;
+        padding: 0px 19.5px 0 20px;
+      }
+      .buttonBorder {
+        border: 1px solid #303134;
+      }
+      .buttonBorderHover {
+        border: 1px solid #5f6368;
+      }
+    }
+    .language {
+      color: #bfbfbf;
+      display: flex;
+      line-height: 28px;
+      font-size: small;
+      margin-top: 12px;
+      font-family: Arial, sans-serif;
+      .pd {
+        padding: 0 0px;
+      }
+      .change {
+        color: #99c3ff;
+        text-decoration: none;
+        padding: 0 2.9px;
+        cursor: pointer;
+        height: 22px;
+        margin-left: 4px;
+        &:hover {
+          box-sizing: border-box;
+          border-bottom: 1px solid #99c3ff;
+        }
+      }
+    }
+    .formBackground {
+      background-color: #313335;
+      border: none;
+      padding: 0.8px 0px;
+      border-radius: 25px;
+    }
+  }
+}

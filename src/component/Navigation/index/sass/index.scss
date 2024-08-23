@@ -1,0 +1,168 @@
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  padding-left: 1px;
+  align-items: center;
+  .gmail {
+    font-size: 13px;
+    font-family: Roboto, Arial, sans-serif;
+    text-decoration: none;
+    color: white;
+    margin-right: 15px;
+    height: 17px;
+    margin-top: 5px;
+    &:hover {
+      border-bottom: 1px white solid;
+      box-sizing: border-box;
+    }
+  }
+  .picture {
+    font-size: 13px;
+    font-family: Roboto, Arial, sans-serif;
+    text-decoration: none;
+    color: white;
+    margin-right: 16px;
+    height: 17px;
+    margin-top: 2px;
+    &:hover {
+      border-bottom: 1px white solid;
+      box-sizing: border-box;
+    }
+  }
+  .more {
+    margin-top: 2px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    height: 40px;
+    width: 38px;
+    cursor: pointer;
+    .morePicture {
+      width: 18px;
+      height: 19px;
+    }
+    &:hover {
+      background-color: #2e2e2f;
+      border-radius: 100px;
+    }
+  }
+  .dialogItem {
+    position: fixed;
+    top: 60px;
+    right: 2%;
+    width: 350px;
+    height: 70%;
+    max-height: 500px;
+    min-height: 250px;
+    background-color: #202124;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #171718;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 3px 10px 14px;
+    .display {
+      overflow-y: scroll;
+      max-height: 500px;
+      min-height: 250px;
+      width: 340px;
+      height: 100%;
+      border-radius: 20px 20px 20px 20px;
+      box-sizing: border-box;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      margin-left: 0px;
+      .buttonItem {
+        border-radius: 100px;
+        border: 1px solid;
+        border-color: #8e918f;
+        background: none;
+        box-sizing: border-box;
+        color: #a8c7fa;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 24px;
+        text-align: center;
+        line-height: 18px;
+        display: flex;
+        margin: 30px auto;
+      }
+      &::-webkit-scrollbar {
+        width: 7px;
+        padding-top: 20px;
+        margin-top: 20px;
+      }
+      .first {
+        background-color: #1a1a1b;
+        margin-bottom: 5px;
+        padding: 10px;
+        border-radius: 20px 20px 0 0;
+      }
+      .end {
+        background-color: #1a1a1b;
+        margin-bottom: 5px;
+        padding: 10px;
+        border-radius: 0 0 20px 20px;
+      }
+      .child {
+        padding-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .box {
+        height: 84px;
+        width: 84px;
+        cursor: pointer;
+        color: #c4c7c5;
+        text-align: center;
+        text-decoration: none;
+        font-family: Helvetica, Arial, sans-serif;
+        border-radius: 10%;
+        padding: 5px 5px;
+        &:hover {
+          background-color: #202124;
+        }
+        .divItem {
+          width: 100%;
+          align-items: center;
+        }
+        .imgItem {
+          width: 40px;
+          height: 40px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .login {
+    margin-top: 2px;
+    vertical-align: top;
+    font-size: 14px;
+    font-weight: 500;
+    color: #001d35;
+    background: #c2e7ff;
+    border-radius: 30px;
+    padding: 8px 28.5px 13px 28.5px;
+    margin-right: 26px;
+    cursor: pointer;
+  }
+}
+
+/* 轨道 */
+::-webkit-scrollbar-track {
+  padding-top: 20px;
+  margin-top: 38px;
+  max-height: 30%;
+}
+/* 箭头按钮 */
+::-webkit-scrollbar-button {
+  display: none;
+}
+/* 滑动块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(78, 78, 78);
+  padding-top: 20px;
+}
