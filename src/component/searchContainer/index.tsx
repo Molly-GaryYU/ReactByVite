@@ -1,21 +1,21 @@
 import logo from '../../img/img-google/logo.png';
 import SearchForm from './component/searchForm';
 import SearchButton from './component/searchButton';
-import './index/sass/index.scss';
+import styles from './index.module.scss';
 import React from 'react';
 const SearchContent: React.FC = () => {
   return (
-    <div className="search">
-      <img className="imgItem" src={logo} alt="" />
-      <div className="searchArea">
+    <div className={styles.search}>
+      <img className={styles.imgItem} src={logo} alt="" />
+      <div className={styles.searchArea}>
         <SearchForm />
         <SearchButton />
-        <div className="language">
+        <div className={styles.language}>
           Google 提供：
-          <a className="change pd" href="*">
+          <a className={`${styles.change} ${styles.pd}`} href="*">
             繁體中文
           </a>
-          <a className="change" href="*">
+          <a className={styles.change} href="*">
             English
           </a>
         </div>

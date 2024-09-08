@@ -96,21 +96,26 @@
       .first {
         background-color: #1a1a1b;
         margin-bottom: 5px;
-        padding: 10px;
+        padding: 30px 10px 10px 10px;
         border-radius: 20px 20px 0 0;
       }
-      .end {
-        background-color: #1a1a1b;
-        margin-bottom: 5px;
-        padding: 10px;
-        border-radius: 0 0 20px 20px;
-      }
       .child {
-        padding-top: 20px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
       }
+      .end {
+        background-color: #1a1a1b;
+        margin-bottom: 5px;
+        padding: 30px 10px 10px 10px;
+        border-radius: 0 0 20px 20px;
+      }
+      // .child {
+      //   padding-top: 20px;
+      //   display: flex;
+      //   flex-wrap: wrap;
+      //   justify-content: center;
+      // }
       .box {
         height: 84px;
         width: 84px;

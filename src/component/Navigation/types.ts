@@ -4,7 +4,3 @@ export interface DataItem {
   id: number;
 }
 
-declare module 'data.tsx' {
-  const value: DataItem[][];
-  export default value;
-}

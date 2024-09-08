@@ -1,31 +1,32 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
+import styles from '../index.module.scss';
 
 const SearchButton: React.FC = () => {
-  const [lockByGoogle, setLockByGoogle] = useState<boolean>(false);
-  const [lockByLucky, setLockByLucky] = useState<boolean>(false);
-  const [hoverGoogleButton, setHoverGoogleButton] = useState<boolean>(false);
-  const [hoverLuckyButton, setHoverLuckyButton] = useState<boolean>(false);
+  const [lockByGoogle, setLockByGoogle] = useState(false);
+  const [lockByLucky, setLockByLucky] = useState(false);
+  const [hoverGoogleButton, setHoverGoogleButton] = useState(false);
+  const [hoverLuckyButton, setHoverLuckyButton] = useState(false);
   const googleButton = useRef<HTMLButtonElement | null>(null);
   const luckyButton = useRef<HTMLButtonElement | null>(null);
   const googleBtnClass = classNames({
-    searchButtonBackground: true,
-    searchButton: true,
-    googleButton: true,
-    buttonBorderHover: hoverGoogleButton,
-    buttonBorder: !hoverGoogleButton,
+    [styles.searchButtonBackground]: true,
+    [styles.searchButton]: true,
+    [styles.googleButton]: true,
+    [styles.buttonBorderHover]: hoverGoogleButton,
+    [styles.buttonBorder]: !hoverGoogleButton,
   });
   const luckyBtnClass = classNames({
-    searchButtonBackground: true,
-    searchButton: true,
-    luckyButton: true,
-    buttonBorderHover: hoverLuckyButton,
-    buttonBorder: !hoverLuckyButton,
+    [styles.searchButtonBackground]: true,
+    [styles.searchButton]: true,
+    [styles.luckyButton]: true,
+    [styles.buttonBorderHover]: hoverLuckyButton,
+    [styles.buttonBorder]: !hoverLuckyButton,
   });
 
   useEffect(() => {
-    const handelGoogleButton = (event) => {
+    const handelGoogleButton: (event) => void = (event) => {
       if (googleButton.current && googleButton.current.contains(event.target)) {
         setLockByGoogle(true);
         setHoverGoogleButton(true);
@@ -36,7 +37,7 @@ const SearchButton: React.FC = () => {
         console.log('googleButton关闭');
       }
     };
-    const handelLockByLucky = (event) => {
+    const handelLockByLucky: (event) => void = (event) => {
       if (luckyButton.current && luckyButton.current.contains(event.target)) {
         setLockByLucky(true);
         setHoverLuckyButton(true);
@@ -53,7 +54,7 @@ const SearchButton: React.FC = () => {
     };
   }, []);
   return (
-    <div className="searchButtonItem">
+    <div className={styles.searchButtonItem}>
       <button
         ref={googleButton}
         className={googleBtnClass}

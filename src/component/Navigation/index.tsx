@@ -1,20 +1,20 @@
 import { useEffect, useState, useRef } from 'react';
-import './index/sass/index.scss';
+import styles from './index.module.scss';
 import ninePointImg from '../../img/img-google/ninePoint.png';
 import React from 'react';
-import { DataItem } from './data.d';
-export default function NavContent() {
+import { DataItem } from './types';
+import classNames from 'classnames';
+const NavContent = () => {
   const serverUrl = 'http://localhost:8080/pages/back/goods/getGoods';
   //这一步不知道为什么state默认值不能写二维数组[][]只能写一维数组[]
   const [dataResult, setDataResult] = useState<DataItem[][] | [][]>([]);
   const ninePoint = useRef<HTMLDivElement>(null);
   const dialog = useRef<HTMLDivElement>(null);
-  const [ninePointClickOrNot, setNinePointClickOrNot] =
-    useState<boolean>(false);
+  const [ninePointClickOrNot, setNinePointClickOrNot] = useState(false);
 
   //请求数据
   useEffect(() => {
-    const handleNinePointClick = (event) => {
+    const handleNinePointClick: (event) => void = (event) => {
       if (ninePoint.current && ninePoint.current.contains(event.target)) {
         setNinePointClickOrNot((ninePointClickOrNot) => !ninePointClickOrNot);
       } else if (dialog.current && dialog.current.contains(event.target)) {
@@ -30,7 +30,7 @@ export default function NavContent() {
     };
   }, []);
   //文档流监听关闭dialog
-  useEffect(() => {
+  useEffect((): void => {
     fetch('http://localhost:8080/pages/back/goods/getGoods')
       .then((response) => response.json())
       .then((result: DataItem[][]) => {
@@ -47,51 +47,51 @@ export default function NavContent() {
       });
   }, [serverUrl]);
   //遍历请求的App内容
-  const dataResultDisplay = () => {
+  const dataResultDisplay: () => JSX.Element[] = () => {
     return dataResult.map((itemBlock, index) => {
-      let classForType;
-      if (index == 0) {
-        classForType = 'first';
-      } else {
-        classForType = 'end';
-      }
+      let classForType = classNames({
+        [styles.first]: index === 0,
+        [styles.end]: index !== 0,
+        [styles.child]: true,
+      });
       return (
         <div className={classForType} key={index}>
-          <div className="child">
-            {itemBlock.map(({ name, imgComponent, id }) => {
-              return (
-                <a className="box" href="/#" key={id}>
-                  <div className="divItem">{imgComponent}</div>
-                  <span> {name}</span>
-                </a>
-              );
-            })}
-          </div>
+          {itemBlock.map(({ name, imgComponent, id }) => {
+            return (
+              <a className={styles.box} href="/#" key={id}>
+                <div className={styles.divItem}>{imgComponent}</div>
+                <span> {name}</span>
+              </a>
+            );
+          })}
+          {/* </div> */}
         </div>
       );
     });
   };
   return (
-    <div className="navigation">
-      <a className="gmail" href="/#">
+    <div className={styles.navigation}>
+      <a className={styles.gmail} href="/#">
         Gmail
       </a>
-      <a className="picture" href="/#">
+      <a className={styles.picture} href="/#">
         图片
       </a>
       {/* 这里套两层是因为需要加入悬停时的背景，border-radius: 100px;写在img标签会影响图片形状 */}
-      <div ref={ninePoint} className="more">
-        <img className=" morePicture" src={ninePointImg} alt="" />
+      <div ref={ninePoint} className={styles.more}>
+        <img className={styles.morePicture} src={ninePointImg} alt="" />
       </div>
       {ninePointClickOrNot ? (
-        <div ref={dialog} className="dialogItem">
-          <div className="display">
+        <div ref={dialog} className={styles.dialogItem}>
+          {/* 这里多套一层是因为，滚动条在dialog内，如果不写多一层，滚动条则会显示在dialog外侧 */}
+          <div className={styles.display}>
             {dataResultDisplay()}
-            <button className="buttonItem">更多Google应用/产品</button>
+            <button className={styles.buttonItem}>更多Google应用/产品</button>
           </div>
         </div>
       ) : null}
-      <a className="login">登录</a>
+      <a className={styles.login}>登录</a>
     </div>
   );
-}
+};
+export default NavContent;

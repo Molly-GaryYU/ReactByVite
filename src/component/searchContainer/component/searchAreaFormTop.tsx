@@ -8,7 +8,9 @@ import hoverCameraImg from '../../../img/img-google/hoverPicture.png';
 import hoverSearchImg from '../../../img/img-google/hoverSearch.png';
 import deleteImg2 from '../../../img/img-google/delete2.png';
 import { useRef, useState } from 'react';
+import styles from '../index.module.scss';
 import React from 'react';
+import classNames from 'classnames';
 
 interface SearchAreaFormTopProps {
   hoverInput: boolean;
@@ -26,7 +28,9 @@ const SearchAreaFormTop: React.FC<SearchAreaFormTopProps> = ({
   const inputElement = useRef<HTMLInputElement | null>(null);
   const [inputValueIsNull, setInputValueIsNull] = useState<boolean>(false);
 
-  const handelInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handelInputValue: (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void = (event) => {
     const target: HTMLInputElement = event.target as HTMLInputElement;
     if (target.value) {
       setInputValueIsNull(true);
@@ -36,23 +40,32 @@ const SearchAreaFormTop: React.FC<SearchAreaFormTopProps> = ({
       setInputValueIsNull(false);
     }
   };
-  const handelCleanInput = () => {
+  const handelCleanInput: () => void = () => {
     if (inputElement.current) inputElement.current.value = '';
     setInputValueIsNull(false);
     setInputOrNot(false);
   };
+  const inputElementStyle = classNames({
+    [styles.inputItem]: true,
+    [styles.inputHover]: hoverInput,
+  });
+  const deleteImgStyles = classNames({
+    [styles.hidden]: true,
+    [styles.hide]: !inputValueIsNull,
+  });
+
   return (
-    <div className="top">
-      <div className="divItem">
-        <div className="left">
+    <div className={styles.top}>
+      <div className={styles.divItem}>
+        <div className={styles.left}>
           <img
-            className={hoverInput ? 'imgItemHover' : 'imgItem'}
+            className={hoverInput ? styles.imgItemHover : styles.imgItem}
             src={hoverInput ? hoverSearchImg : searchImg}
             alt=""
           />
           <input
             ref={inputElement}
-            className={hoverInput ? 'inputHover inputItem ' : 'inputItem'}
+            className={inputElementStyle}
             onFocus={() => {
               setFocusRightNow(true);
               setHoverInput(true);
@@ -60,14 +73,14 @@ const SearchAreaFormTop: React.FC<SearchAreaFormTopProps> = ({
             onChange={handelInputValue}
           />
         </div>
-        <div className="right">
+        <div className={styles.right}>
           <img
             className={
               inputValueIsNull
                 ? hoverInput
-                  ? 'hiddenImg'
-                  : 'hidden'
-                : 'hidden hide'
+                  ? styles.hiddenImg
+                  : styles.hidden
+                : deleteImgStyles
             }
             src={hoverInput ? deleteImg : deleteImg2}
             alt=""
@@ -75,18 +88,22 @@ const SearchAreaFormTop: React.FC<SearchAreaFormTopProps> = ({
           />
           <span
             className={
-              inputValueIsNull ? (hoverInput ? 'lineHover' : 'line') : 'hide'
+              inputValueIsNull
+                ? hoverInput
+                  ? styles.lineHover
+                  : styles.line
+                : styles.hide
             }
           ></span>
           <img
             className={
               inputValueIsNull
                 ? hoverInput
-                  ? 'InputMikeHover'
-                  : 'mike'
+                  ? styles.InputMikeHover
+                  : styles.mike
                 : hoverInput
-                ? 'mikeHover'
-                : 'mike'
+                ? styles.mikeHover
+                : styles.mike
             }
             src={hoverInput ? hoverMaiKeImg : maiKeImg}
             alt=""
@@ -95,11 +112,11 @@ const SearchAreaFormTop: React.FC<SearchAreaFormTopProps> = ({
             className={
               inputValueIsNull
                 ? hoverInput
-                  ? 'InputCameraHover'
-                  : 'camera'
+                  ? styles.InputCameraHover
+                  : styles.camera
                 : hoverInput
-                ? 'cameraHover'
-                : 'camera'
+                ? styles.cameraHover
+                : styles.camera
             }
             src={hoverInput ? hoverCameraImg : cameraImg}
             alt=""

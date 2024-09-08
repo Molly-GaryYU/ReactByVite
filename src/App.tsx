@@ -1,7 +1,7 @@
-import './component/footer/index/sass/bottom.scss';
+import './component/footer/bottom.module.scss';
 import '../googleHome.css';
-import './component/searchContainer/index/sass/index.scss';
-import './component/Navigation/index/sass/index.scss';
+import './component/searchContainer/index.module.scss';
+import './component/Navigation/index.module.scss';
 import FooterContainer from './component/footer';
 import NavContent from './component/Navigation';
 import SearchContent from './component/searchContainer';
